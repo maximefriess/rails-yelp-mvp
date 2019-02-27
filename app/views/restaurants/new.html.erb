@@ -1,0 +1,41 @@
+<%= form_for(@restaurant) do |r| %>
+  <div class="form-group">
+    <%= r.label :name %>
+    <%= r.text_field :name, class: 'form-control' %>
+  </div>
+
+<!--   <div class="form-group">
+    <%= r.label :category %>
+    <%= r.text_field :category, class: 'form-control' %>
+  </div>
+ -->
+   <div class="form-group">
+    <%= r.label :category %>
+    <%= r.text_field :category, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= r.label :address %>
+    <%= r.text_field :address, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= r.label :phone_number %>
+    <%= r.text_field :phone_number, class: 'form-control' %>
+  </div>
+
+  <%= r.submit class: 'btn btn-primary' %>
+<% end %>
+<br>
+<h3>Error!</h3>
+<% if @restaurant.errors.any? %>
+    <div class="errors-container">
+      <ul>
+        <% @restaurant.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+<br><br>
+<p><%= link_to "Back to list", restaurants_path %></p>
